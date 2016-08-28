@@ -6,17 +6,7 @@ var PORT = 3000;
 
 //to stop server from listening on port 3000 press control C
 
-var middleware = {
-
-	requireAuthentication: function(req, res, next){
-		console.log('private route hit!');
-		next();
-	},
-	logger: function(req,res, next){
-		console.log('Request: '+ new Date().toString()+''+req.method +' '+req.originalUrl);
-		next();
-	}
-};
+var middleware = require('./middleware.js');
 
 app.use(middleware.logger);
 
